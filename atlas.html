@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ink Atlas — Ironwood Ink</title>
+  <meta name="description" content="An interactive knowledge graph of tattoo styles, motifs, meanings and placements — built with graphify." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="brand">Ironwood<em>·</em>Ink</a>
+    <ul>
+      <li><a class="navlink" href="/#styles">Styles</a></li>
+      <li><a class="navlink" href="/#artists">Artists</a></li>
+      <li><a class="navlink" href="/#work">Work</a></li>
+      <li><a class="navlink" href="/#pricing">Pricing</a></li>
+      <li><a class="navlink" href="atlas.html">Ink Atlas</a></li>
+    </ul>
+    <a class="nav-cta" href="/#book">Book a consult</a>
+  </nav>
+
+  <header class="atlas-hero">
+    <div class="container">
+      <span class="kicker">The Ink Atlas · powered by graphify</span>
+      <h1>Every meaning, <em style="color: var(--blood-bright); font-style: normal;">connected.</em></h1>
+      <p>
+        This is a living knowledge graph of the studio's vocabulary — styles, motifs,
+        meanings, artists and placements, extracted from our design documentation by
+        graphify. Click any node to wander the connections. Search to jump straight in.
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="atlas-wrap">
+      <aside class="atlas-side" id="atlas-side">
+        <h3>Explore</h3>
+        <input id="atlas-search" type="search" placeholder="Search styles, motifs, meanings…"
+               style="width:100%; background: var(--ink); border:1px solid var(--line); color: var(--bone); padding: 10px 12px; font-family: inherit; margin-bottom: 18px;" />
+        <div class="node-info" id="node-info">
+          <p style="color: var(--bone-dim); font-size: 0.85rem;">Select a node in the graph to see its story and connections. Every edge is tagged <span style="color: var(--copper);">EXTRACTED</span> (found in the docs) or <span style="color: var(--bone-dim);">INFERRED</span> (reasoned).</p>
+        </div>
+      </aside>
+      <div class="atlas-canvas" id="atlas-canvas">
+        <div class="atlas-legend">
+          <span><i style="background:#c07a3f;"></i>Style</span>
+          <span><i style="background:#e9e0d2;"></i>Motif</span>
+          <span><i style="background:#b3122c;"></i>Meaning</span>
+          <span><i style="background:#e01830;"></i>Artist</span>
+          <span><i style="background:#7a8fa8;"></i>Placement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Ironwood Ink. All rights reserved.</span>
+        <span>Atlas graph regenerated with <a href="https://github.com/Graphify-Labs/graphify" style="border-bottom:1px solid var(--line);">graphify</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/atlas.ts"></script>
+</body>
+</html>
