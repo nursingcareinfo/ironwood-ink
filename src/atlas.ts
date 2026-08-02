@@ -56,7 +56,7 @@ function normalize(g: unknown): Graph {
 }
 
 async function main() {
-  const res = await fetch("/atlas/graph.json");
+  const res = await fetch(import.meta.env.BASE_URL + "atlas/graph.json");
   const { nodes, edges } = normalize(await res.json());
 
   const nodeSet = new DataSet(
