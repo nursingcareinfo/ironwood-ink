@@ -233,7 +233,7 @@ function wireBooking() {
   // Real submission via FormSubmit (no-signup email endpoint).
   // TODO: replace with the studio's real inbox (FormSubmit confirms by email
   // on first use), or a proper backend / Formspree.
-  const BOOKING_ENDPOINT = "https://formsubmit.co/ajax/hello@ironwood.ink";
+  const BOOKING_ENDPOINT = "https://formsubmit.co/ajax/hello@tay2z.com";
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -266,7 +266,7 @@ function wireBooking() {
     submit.textContent = "Sending…";
 
     const payload = {
-      _subject: `Ironwood Ink consult — ${name}`,
+      _subject: `Tay2z consult — ${name}`,
       _template: "table",
       _captcha: "false",
       name, email, phone, style, placement, month,
@@ -285,9 +285,9 @@ function wireBooking() {
       form.reset();
     } catch (err) {
       // Graceful fallback: open the user's mail client with the request prefilled.
-      const subject = encodeURIComponent(`Ironwood Ink consult — ${name}`);
+      const subject = encodeURIComponent(`Tay2z consult — ${name}`);
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || "—"}\nStyle: ${style}\nPlacement: ${placement}\nMonth: ${month || "—"}\nIdea: ${message || "—"}`);
-      ok.innerHTML = `Direct submission failed (${err instanceof Error ? err.message : "network"}) — <a href="mailto:hello@ironwood.ink?subject=${subject}&body=${body}" style="color: var(--bone); text-decoration: underline;">send it by email instead</a>, or call us at +1 (555) 014-2246.`;
+      ok.innerHTML = `Direct submission failed (${err instanceof Error ? err.message : "network"}) — <a href="mailto:hello@tay2z.com?subject=${subject}&body=${body}" style="color: var(--bone); text-decoration: underline;">send it by email instead</a>, or call us at +1 (555) 014-2246.`;
       ok.classList.add("show");
       ok.style.borderColor = "var(--blood)";
     } finally {
