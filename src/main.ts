@@ -71,9 +71,9 @@ const STYLES = [
 ];
 
 const ARTISTS = [
-  { init: "M", name: "Mara Voss", role: "Founder · Japanese & blackwork", bio: "Twenty years behind the machine, twelve of them apprenticed under a te-bori master in Osaka. Mara designs every irezumi background by hand — no two are alike.", specs: ["Irezumi", "Blackwork", "Te-bori"] },
-  { init: "J", name: "Jon Bell", role: "Traditional & neo-traditional", bio: "Trained in a two-year apprenticeship on the American Traditional curriculum. Jon's flash wall is a love letter to the 1940s — and his color packing is second to none.", specs: ["Traditional", "Neo-trad", "Color"] },
-  { init: "S", name: "Sofia Reyes", role: "Fine line & realism", bio: "Ex-illustrator who found her forever medium in skin. Sofia specializes in botanical fine line and high-detail portraits, with a waiting list to match her reputation.", specs: ["Fine line", "Portrait", "Botanical"] },
+  { init: "A", name: "Atif Inno", role: "Founder · Japanese & blackwork", bio: "Twenty years behind the machine, twelve of them apprenticed under a te-bori master in Osaka. Atif designs every irezumi background by hand — no two are alike.", specs: ["Irezumi", "Blackwork", "Te-bori"] },
+  { init: "G", name: "GaGa", role: "Traditional & neo-traditional", bio: "Trained in a two-year apprenticeship on the American Traditional curriculum. GaGa's flash wall is a love letter to the 1940s — and color packing is second to none.", specs: ["Traditional", "Neo-trad", "Color"] },
+  { init: "H", name: "Habil", role: "Fine line & realism", bio: "Ex-illustrator who found their forever medium in skin. Habil specializes in botanical fine line and high-detail portraits, with a waiting list to match the reputation.", specs: ["Fine line", "Portrait", "Botanical"] },
 ];
 
 type Piece = {
@@ -83,21 +83,23 @@ type Piece = {
   year: string;
   gradient: string;
   motif: string;
+  photo: string;
   note: string;
 };
 
-// Sample pieces — replace gradients/motifs with real photos (see public/ dir).
+// Sample pieces — real photos (Wikimedia Commons, free license) with
+// procedural SVG fallback if the image fails to load.
 const PIECES: Piece[] = [
-  { title: "Koi & Chrysanthemum", style: "Japanese", artist: "Mara", year: "2025", gradient: "radial-gradient(120% 120% at 30% 20%, rgba(179,18,44,.4), transparent 60%), radial-gradient(100% 100% at 80% 90%, rgba(11,8,6,.9), transparent 70%), #1c1410", motif: "japanese", note: "Full back piece, three sessions. The koi swims upstream — perseverance through the chrysanthemum field." },
-  { title: "Dagger & Heart", style: "Neo-Traditional", artist: "Jon", year: "2025", gradient: "radial-gradient(120% 120% at 70% 25%, rgba(192,122,63,.35), transparent 60%), linear-gradient(160deg, #1a1210, #0c0907)", motif: "neo", note: "Loyalty and betrayal in one image. Painted with a full spectrum — from butter yellow to oxblood." },
-  { title: "Sleeve Draft 01", style: "Japanese", artist: "Mara", year: "2024", gradient: "radial-gradient(130% 130% at 65% 15%, rgba(233,224,210,.14), transparent 55%), linear-gradient(200deg, #191009, #0b0806)", motif: "japanese", note: "Wind bars and maple. The background is drawn to flow with the triceps — the hardest part of the sleeve." },
-  { title: "Rose & Swallow", style: "Traditional", artist: "Jon", year: "2024", gradient: "radial-gradient(120% 120% at 40% 30%, rgba(179,18,44,.45), transparent 60%), linear-gradient(180deg, #17110d, #0a0706)", motif: "traditional", note: "The classic 'returning home' pairing. Bold enough to read at ten paces, thirty years from now." },
-  { title: "Portrait Study", style: "Realism", artist: "Sofia", year: "2025", gradient: "radial-gradient(120% 120% at 50% 35%, rgba(233,224,210,.16), transparent 60%), linear-gradient(180deg, #151210, #080605)", motif: "realism", note: "B&W portrait from a single 1982 photograph. Six hours, one sitting, one needle." },
-  { title: "Monstera Arm", style: "Fine Line", artist: "Sofia", year: "2024", gradient: "radial-gradient(120% 120% at 60% 30%, rgba(192,122,63,.3), transparent 60%), linear-gradient(180deg, #14100c, #0a0706)", motif: "fineline", note: "Botanical fine line down the inner forearm. The veins follow the muscle — it moves when she moves." },
-  { title: "Skull & Serpent", style: "Blackwork", artist: "Mara", year: "2024", gradient: "radial-gradient(120% 120% at 40% 25%, rgba(233,224,210,.12), transparent 55%), linear-gradient(180deg, #100d0a, #070504)", motif: "blackwork", note: "Solid-black skull with a negative-space serpent. Packed to 100% — no grey, no mercy." },
-  { title: "Mandala Core", style: "Dotwork", artist: "Jon", year: "2023", gradient: "radial-gradient(120% 120% at 50% 45%, rgba(179,18,44,.28), transparent 60%), linear-gradient(180deg, #140f0b, #0a0706)", motif: "dotwork", note: "Sacred geometry sternum piece. Eleven hours of stippling — every dot placed by hand." },
-  { title: "Wave Sleeve", style: "Japanese", artist: "Mara", year: "2023", gradient: "radial-gradient(140% 140% at 25% 80%, rgba(192,122,63,.3), transparent 60%), radial-gradient(100% 100% at 80% 20%, rgba(179,18,44,.3), transparent 55%), #171009", motif: "japanese", note: "Seigaiha waves with a rising sun shoulder cap. The sleeve's edge was left raw — a 'jump line' on purpose." },
-  { title: "Hannya Half", style: "Neo-Traditional", artist: "Jon", year: "2023", gradient: "radial-gradient(130% 130% at 60% 30%, rgba(179,18,44,.4), transparent 60%), linear-gradient(180deg, #171009, #0a0706)", motif: "neo", note: "Hannya mask with tiger lily. The anger mask, the flower of pride — a study in contrast." },
+  { title: "Koi & Chrysanthemum", style: "Japanese", artist: "Atif", year: "2025", photo: "/photos/piece-1.jpg", gradient: "radial-gradient(120% 120% at 30% 20%, rgba(179,18,44,.4), transparent 60%), radial-gradient(100% 100% at 80% 90%, rgba(11,8,6,.9), transparent 70%), #1c1410", motif: "japanese", note: "Full back piece, three sessions. The koi swims upstream — perseverance through the chrysanthemum field." },
+  { title: "Dagger & Heart", style: "Neo-Traditional", artist: "GaGa", year: "2025", photo: "/photos/piece-3.jpg", gradient: "radial-gradient(120% 120% at 70% 25%, rgba(192,122,63,.35), transparent 60%), linear-gradient(160deg, #1a1210, #0c0907)", motif: "neo", note: "Loyalty and betrayal in one image. Painted with a full spectrum — from butter yellow to oxblood." },
+  { title: "Sleeve Draft 01", style: "Japanese", artist: "Atif", year: "2024", photo: "/photos/piece-2.jpg", gradient: "radial-gradient(130% 130% at 65% 15%, rgba(233,224,210,.14), transparent 55%), linear-gradient(200deg, #191009, #0b0806)", motif: "japanese", note: "Wind bars and maple. The background is drawn to flow with the triceps — the hardest part of the sleeve." },
+  { title: "Rose & Swallow", style: "Traditional", artist: "GaGa", year: "2024", photo: "/photos/piece-12.jpg", gradient: "radial-gradient(120% 120% at 40% 30%, rgba(179,18,44,.45), transparent 60%), linear-gradient(180deg, #17110d, #0a0706)", motif: "traditional", note: "The classic 'returning home' pairing. Bold enough to read at ten paces, thirty years from now." },
+  { title: "Portrait Study", style: "Realism", artist: "Habil", year: "2025", photo: "/photos/piece-9.jpg", gradient: "radial-gradient(120% 120% at 50% 35%, rgba(233,224,210,.16), transparent 60%), linear-gradient(180deg, #151210, #080605)", motif: "realism", note: "B&W portrait from a single 1982 photograph. Six hours, one sitting, one needle." },
+  { title: "Monstera Arm", style: "Fine Line", artist: "Habil", year: "2024", photo: "/photos/piece-7.jpg", gradient: "radial-gradient(120% 120% at 60% 30%, rgba(192,122,63,.3), transparent 60%), linear-gradient(180deg, #14100c, #0a0706)", motif: "fineline", note: "Botanical fine line down the inner forearm. The veins follow the muscle — it moves when she moves." },
+  { title: "Skull & Serpent", style: "Blackwork", artist: "Atif", year: "2024", photo: "/photos/piece-5.jpg", gradient: "radial-gradient(120% 120% at 40% 25%, rgba(233,224,210,.12), transparent 55%), linear-gradient(180deg, #100d0a, #070504)", motif: "blackwork", note: "Solid-black skull with a negative-space serpent. Packed to 100% — no grey, no mercy." },
+  { title: "Mandala Core", style: "Dotwork", artist: "GaGa", year: "2023", photo: "/photos/piece-11.jpg", gradient: "radial-gradient(120% 120% at 50% 45%, rgba(179,18,44,.28), transparent 60%), linear-gradient(180deg, #140f0b, #0a0706)", motif: "dotwork", note: "Sacred geometry sternum piece. Eleven hours of stippling — every dot placed by hand." },
+  { title: "Wave Sleeve", style: "Japanese", artist: "Atif", year: "2023", photo: "/photos/piece-13.jpg", gradient: "radial-gradient(140% 140% at 25% 80%, rgba(192,122,63,.3), transparent 60%), radial-gradient(100% 100% at 80% 20%, rgba(179,18,44,.3), transparent 55%), #171009", motif: "japanese", note: "Seigaiha waves with a rising sun shoulder cap. The sleeve's edge was left raw — a 'jump line' on purpose." },
+  { title: "Hannya Half", style: "Neo-Traditional", artist: "GaGa", year: "2023", photo: "/photos/piece-10.jpg", gradient: "radial-gradient(130% 130% at 60% 30%, rgba(179,18,44,.4), transparent 60%), linear-gradient(180deg, #171009, #0a0706)", motif: "neo", note: "Hannya mask with tiger lily. The anger mask, the flower of pride — a study in contrast." },
 ];
 
 const FAQS = [
@@ -149,8 +151,12 @@ function renderArtists() {
 }
 
 function pieceWash(p: Piece) {
-  return `<div class="ink-wash" style="background: ${p.gradient}; color: var(--bone); display:flex; align-items:center; justify-content:center;">
-    <div style="width: 55%; opacity: .9; filter: drop-shadow(0 0 18px rgba(0,0,0,.5));">${MOTIFS[p.motif]}</div>
+  return `<div class="ink-wash" style="background: ${p.gradient}">
+    <img class="wash-img" src="${p.photo}" alt="${p.title}"
+         onerror="this.classList.add('err')" />
+    <div class="wash-fallback" style="color: var(--bone);">
+      <div style="width: 55%; opacity: .9; filter: drop-shadow(0 0 18px rgba(0,0,0,.5));">${MOTIFS[p.motif]}</div>
+    </div>
   </div>`;
 }
 
@@ -219,30 +225,73 @@ function renderFaq() {
 
 function wireBooking() {
   const form = document.getElementById("booking-form") as HTMLFormElement;
-  form.addEventListener("submit", (e) => {
+  const ok = document.getElementById("form-ok")!;
+
+  // Real submission via FormSubmit (no-signup email endpoint).
+  // TODO: replace with the studio's real inbox (FormSubmit confirms by email
+  // on first use), or a proper backend / Formspree.
+  const BOOKING_ENDPOINT = "https://formsubmit.co/ajax/hello@ironwood.ink";
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const name = (document.getElementById("f-name") as HTMLInputElement).value.trim();
-    const email = (document.getElementById("f-email") as HTMLInputElement).value.trim();
-    const style = (document.getElementById("f-style") as HTMLSelectElement).value;
-    const placement = (document.getElementById("f-placement") as HTMLSelectElement).value;
+    const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement).value.trim();
+    const name = val("f-name");
+    const email = val("f-email");
+    const phone = val("f-phone");
+    const style = val("f-style");
+    const placement = val("f-placement");
+    const month = val("f-date");
+    const message = val("f-msg");
 
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     let firstBad: HTMLElement | null = null;
-    const check = (id: string, ok: boolean): HTMLElement | null => {
-      const field = document.getElementById(id) as HTMLElement;
-      const input = field.querySelector("input, select") as HTMLElement;
-      input.style.borderColor = ok ? "" : "var(--blood-bright)";
-      return ok ? null : input;
+    const check = (id: string, pass: boolean): HTMLElement | null => {
+      // ids live on the input/select elements themselves (see index.html)
+      const input = document.getElementById(id) as HTMLInputElement | HTMLSelectElement;
+      input.style.borderColor = pass ? "" : "var(--blood-bright)";
+      return pass ? null : input;
     };
-    firstBad = check("f-name", name.length >= 2) ?? check("f-email", validEmail) ?? check("f-style", !!style) ?? check("f-placement", !!placement);
+    const bad1 = check("f-name", name.length >= 2);
+    const bad2 = check("f-email", validEmail);
+    const bad3 = check("f-style", !!style);
+    const bad4 = check("f-placement", !!placement);
+    firstBad = bad1 ?? bad2 ?? bad3 ?? bad4;
     if (firstBad) { firstBad.focus(); return; }
 
-    // TODO: wire to a real booking backend / email (e.g. Formspree, or the studio
-    // inbox). For now we simulate a successful submission.
-    const ok = document.getElementById("form-ok")!;
-    ok.classList.add("show");
-    form.reset();
-    ok.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submit.disabled = true;
+    submit.textContent = "Sending…";
+
+    const payload = {
+      _subject: `Ironwood Ink consult — ${name}`,
+      _template: "table",
+      _captcha: "false",
+      name, email, phone, style, placement, month,
+      message: message || "—",
+    };
+
+    try {
+      const res = await fetch(BOOKING_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`formsubmit ${res.status}`);
+      ok.textContent = "Thanks — your request is in. We'll be in touch within 48 hours with consultation options.";
+      ok.classList.add("show");
+      form.reset();
+    } catch (err) {
+      // Graceful fallback: open the user's mail client with the request prefilled.
+      const subject = encodeURIComponent(`Ironwood Ink consult — ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || "—"}\nStyle: ${style}\nPlacement: ${placement}\nMonth: ${month || "—"}\nIdea: ${message || "—"}`);
+      ok.innerHTML = `Direct submission failed (${err instanceof Error ? err.message : "network"}) — <a href="mailto:hello@ironwood.ink?subject=${subject}&body=${body}" style="color: var(--bone); text-decoration: underline;">send it by email instead</a>, or call us at +1 (555) 014-2246.`;
+      ok.classList.add("show");
+      ok.style.borderColor = "var(--blood)";
+    } finally {
+      submit.disabled = false;
+      submit.textContent = "Request consultation";
+      ok.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
   });
 }
 
