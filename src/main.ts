@@ -74,7 +74,7 @@ const STYLES = [
 ];
 
 const ARTISTS = [
-  { init: "A", name: "Atif Inno", role: "Founder · Japanese & blackwork", bio: "Twenty years behind the machine, twelve of them apprenticed under a te-bori master in Osaka. Atif designs every irezumi background by hand — no two are alike.", specs: ["Irezumi", "Blackwork", "Te-bori"] },
+  { init: "A", name: "Atif Inno", role: "Owner · Japanese & blackwork", bio: "Twenty years behind the machine, twelve of them apprenticed under a te-bori master in Osaka. Atif designs every irezumi background by hand — no two are alike.", specs: ["Irezumi", "Blackwork", "Te-bori"] },
   { init: "G", name: "GaGa", role: "Traditional & neo-traditional", bio: "Trained in a two-year apprenticeship on the American Traditional curriculum. GaGa's flash wall is a love letter to the 1940s — and color packing is second to none.", specs: ["Traditional", "Neo-trad", "Color"] },
   { init: "H", name: "Habil", role: "Fine line & realism", bio: "Ex-illustrator who found their forever medium in skin. Habil specializes in botanical fine line and high-detail portraits, with a waiting list to match the reputation.", specs: ["Fine line", "Portrait", "Botanical"] },
 ];
