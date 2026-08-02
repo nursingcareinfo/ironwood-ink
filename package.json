@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "atlas": "node scripts/graphify.sh"
+    "atlas": "node scripts/graphify.sh",
+    "deploy:pages": "npm run build && git branch -f gh-pages HEAD && git worktree add /tmp/gh-pages-dist gh-pages && cp -r dist/* /tmp/gh-pages-dist/ && git -C /tmp/gh-pages-dist add -A && git -C /tmp/gh-pages-dist -c user.name=archbtw -c user.email=archbtw@localhost commit -q -m \"deploy: pages build 2026-08-02\" && git push origin gh-pages && git worktree remove /tmp/gh-pages-dist --force"
   },
   "dependencies": {
     "vis-data": "^7.1.9",
